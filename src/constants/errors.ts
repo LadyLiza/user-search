@@ -1,0 +1,3 @@
+export enum AXIOS_ERROR_CODES {
+  TIMEOUT = 'ECONNABORTED'
+}

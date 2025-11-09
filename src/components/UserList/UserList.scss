@@ -2,18 +2,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, auto));
   justify-content: center;
-  justify-items: stretch;
-  align-items: stretch;
   gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
-  box-sizing: border-box;
-}
 
-@media (max-width: 768px) {
-  .user-list {
+  &__item {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
     justify-items: center;
   }

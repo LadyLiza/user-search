@@ -15,8 +15,12 @@
 
     "resolveJsonModule": true,
     "allowJs": true,
+    "types": ["jest", "node"],
 
-    "types": ["jest", "node"]
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["src"]
 }

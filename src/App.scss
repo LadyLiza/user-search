@@ -1,17 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
 
-  background: url('./assets/bg.jpg') center/cover no-repeat;
-  background-attachment: fixed;
-  color: #f5f5f5;
-
-  cursor: url('./assets/cursor-paw.png') 4 4, auto;
-}
-
-.app-container {
+.app {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -19,57 +9,59 @@ body {
   padding: 2rem;
   min-height: 100vh;
   box-sizing: border-box;
-  width: 100%;
-}
 
-.paper-card,
-.filter,
-.user-card {
-  background: #141414;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  color: #f2f2f2;
-}
-
-.user-card__name {
-  color: #ffffff;
-}
-
-.user-card__info span {
-  color: #e0e0e0;
-}
-
-.error-retry {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.retry-button {
-  background: transparent;
-  border: 2px solid #f5f5f5;
-  color: #f5f5f5;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.6rem 1.5rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-
-  &:hover {
-    background: #f5f5f5;
-    color: #141414;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+  &__error-retry {
+    @include center-flex(column);
+    gap: 1rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    max-width: 500px;
+    text-align: center;
   }
 
-  &:active {
-    transform: scale(0.95);
+  &__retry-button {
+    width: 150px;
+    background: transparent;
+    border: 2px solid $color-text-light;
+    color: $color-text-light;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: $radius-small;
+    cursor: pointer;
+    transition: $transition-smooth;
+    box-shadow: $shadow-light;
+
+    &:hover {
+      background: $color-text-light;
+      color: $color-bg-dark;
+      transform: scale(1.05);
+      box-shadow: $shadow-strong;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__loader {
+    @include center-flex(column);
+    height: 80vh;
+    text-align: center;
+
+    &-text.MuiTypography-root {
+      font-size: 1.8rem;
+      margin-top: 1.2rem;
+      opacity: 0.95;
+    }
+  }
+
+  &__no-results {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $color-text-light;
+    opacity: 0.9;
   }
 }

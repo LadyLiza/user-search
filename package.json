@@ -17,6 +17,7 @@
     "@types/react-dom": "^19.2.2",
     "axios": "^1.13.2",
     "framer-motion": "^12.23.24",
+    "http-status-codes": "^2.3.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-scripts": "5.0.1",
@@ -25,9 +26,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/axios": "^0.14.4"
+    "@types/axios": "^0.14.4",
+    "react-app-rewired": "^2.2.1"
   }
 }

@@ -1,17 +1,37 @@
-.error-message {
-  background: #ffebee;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
-  border-radius: 12px;
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
+
+.MuiAlert-root.error-message {
+  @include center-flex;
+  text-align: left;
+  width: 100%;
+  background: $color-error-bg;
+  color: $color-error-text;
+  border: 1px solid $color-error-border;
+  border-radius: $radius-small;
   padding: 1rem 1.5rem;
   margin: 1rem 0;
   font-size: 1rem;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  .MuiAlert-icon {
+    margin-right: 0.75rem;
+    align-self: flex-start;
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
 }
 
-.error-message strong {
-  font-weight: 600;
+.error-message {
+  &__details {
+    font-size: 0.9rem;
+    color: #b71c1c;
+    opacity: 0.9;
+  }
 }

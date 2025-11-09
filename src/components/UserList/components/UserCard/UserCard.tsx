@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import { User } from '../../../../types/User';
+import { User } from '@/types/user';
 import './UserCard.scss';
 
 interface Props {

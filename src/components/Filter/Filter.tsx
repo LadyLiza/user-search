@@ -1,49 +1,56 @@
 import React from 'react';
-import { TextField, MenuItem, Paper, Box } from '@mui/material';
+import {
+  TextField,
+  MenuItem,
+  Paper,
+  Box,
+  Select,
+  SelectChangeEvent,
+  FormControl,
+} from '@mui/material';
 import './Filter.scss';
 
 interface Props {
-  search: string;
-  city: string;
   cities: string[];
-  onSearchChange: (value: string) => void;
+  onNameChange: (value: string) => void;
   onCityChange: (value: string) => void;
 }
 
-export const Filter: React.FC<Props> = ({
-  search,
-  city,
-  cities,
-  onSearchChange,
-  onCityChange,
-}) => {
+export const Filter: React.FC<Props> = ({ cities, onNameChange, onCityChange }) => {
   return (
     <Paper elevation={3} className="filter">
       <Box className="filter__inputs">
         <TextField
           placeholder="Search by name"
           variant="outlined"
-          value={search}
-          onChange={(e) => onSearchChange(e.target.value)}
-          className="filter__input"
+          onChange={(e) => onNameChange(e.target.value)}
+          className="filter__field"
           fullWidth
+          size="medium"
         />
 
-        <TextField
-          select
-          value={city}
-          onChange={(e) => onCityChange(e.target.value)}
-          className="filter__input"
-          fullWidth
-          variant="outlined"
-        >
-          <MenuItem value="">All cities</MenuItem>
-          {cities.map((c) => (
-            <MenuItem key={c} value={c}>
-              {c}
-            </MenuItem>
-          ))}
-        </TextField>
+        <FormControl fullWidth className="filter__field">
+          <Select
+            onChange={(e: SelectChangeEvent) => onCityChange(e.target.value)}
+            displayEmpty
+            renderValue={(value) =>
+              value ? (
+                value
+              ) : (
+                <span className="filter__placeholder">All cities</span>
+              )
+            }
+            variant="outlined"
+            size="medium"
+          >
+            <MenuItem value="">All cities</MenuItem>
+            {cities.map((c) => (
+              <MenuItem key={c} value={c}>
+                {c}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Box>
     </Paper>
   );
