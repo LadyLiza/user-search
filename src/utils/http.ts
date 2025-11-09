@@ -4,15 +4,12 @@ import { AXIOS_ERROR_CODES } from "@/constants/errors";
 import { AppError } from "@/utils/AppError";
 import { BASE_URL } from "@/constants/api";
 
-export const http = axios.create({
-  baseURL: BASE_URL,
-  headers: { "Content-Type": "application/json" },
-  timeout: 5000,
-});
-
 export const get = async <T>(url: string): Promise<T> => {
   try {
-    const response = await http.get<T>(url);
+    const response = await axios.get<T>(`${BASE_URL}${url}`, {
+      headers: { "Content-Type": "application/json" },
+      timeout: 5000,
+    });
 
     return response.data;
   } catch (error: any) {
