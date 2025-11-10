@@ -1,5 +1,5 @@
-@use './variables' as *;
-@use './mixins' as *;
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
 
 body {
   margin: 0;
@@ -7,26 +7,19 @@ body {
   font-family: $font-main;
   color: $color-text-light;
   line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
-  min-height: var(--app-height);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('../assets/bg.webp') center top / cover no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
   cursor: url('../assets/cursor-paw.png') 4 4, auto;
+  overflow-x: hidden;
 }
 
-.app-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url('../assets/bg.webp') center/cover no-repeat;
-  background-attachment: scroll;
-  pointer-events: none;
-  transform: translateZ(0);
-}
-
-@supports (-webkit-touch-callout: none) {
-  html, body {
-    height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
+@media (max-width: 480px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
   }
 }
 
