@@ -87,6 +87,8 @@ export const App: React.FC = () => {
         <>
           <Filter
             cities={cities}
+            selectedName={selectedName}
+            selectedCity={selectedCity}
             onNameChange={setSelectedName}
             onCityChange={setSelectedCity}
           />

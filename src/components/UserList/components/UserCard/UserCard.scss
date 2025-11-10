@@ -1,5 +1,4 @@
-@import '~@/styles/variables';
-@import '~@/styles/mixins';
+@use '../../../../styles/index.scss' as *;
 
 .user-card {
   @include card-style;

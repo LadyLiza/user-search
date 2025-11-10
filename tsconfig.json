@@ -19,7 +19,8 @@
 
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": ["src"]
