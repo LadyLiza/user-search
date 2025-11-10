@@ -4,13 +4,13 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100dvh;
   font-family: $font-main;
   color: $color-text-light;
-  cursor: url('../assets/cursor-paw.png') 4 4, auto;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  min-height: 100%;
+  cursor: url('../assets/cursor-paw.png') 4 4, auto;
 }
 
 body::before {
@@ -19,6 +19,16 @@ body::before {
   inset: 0;
   z-index: -1;
   background: url('../assets/bg.webp') center/cover no-repeat;
+  background-attachment: scroll;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
 }
 
 * {
