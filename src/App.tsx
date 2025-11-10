@@ -17,6 +17,18 @@ export const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<AppError | null>(null);
 
+  useEffect(() => {
+    const setAppHeight = () => {
+      document.documentElement.style.setProperty(
+        "--app-height",
+        `${window.innerHeight}px`
+      );
+    };
+    setAppHeight();
+    window.addEventListener("resize", setAppHeight);
+    return () => window.removeEventListener("resize", setAppHeight);
+  }, []);
+
   const loadUsers = async () => {
     setLoading(true);
     setError(null);
