@@ -1,3 +1,7 @@
+## Requirements
+- Node.js v22.9.0
+- npm v10.2.4
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
