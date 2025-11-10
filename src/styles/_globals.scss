@@ -13,14 +13,13 @@ body {
   cursor: url('../assets/cursor-paw.png') 4 4, auto;
 }
 
-body::before {
-  content: '';
+.app-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   background: url('../assets/bg.webp') center/cover no-repeat;
   background-attachment: scroll;
-  will-change: transform;
+  pointer-events: none;
   transform: translateZ(0);
 }
 
